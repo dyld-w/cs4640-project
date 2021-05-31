@@ -1,20 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta name="description" content="">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> 
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <footer>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> <script src="scripts.js"></script>
-</body>
+  <head>  
+    <meta charset="utf-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  
+    <meta name="author" content="Nijat Khanbabayev and Dylan Dellett-Wion">
+    <meta name="description" content="define a description of this page">
+    <meta name="keywords" content="define keywords for search engines">
+      
+    <title>Demo home page</title>
+    <link rel="stylesheet" href="styles/main-responsive.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+    <link rel="shortcut icon" href="http://www.cs.virginia.edu/~up3f/cs4640/images/webpl.png" type="image/ico" />  
+    
+  </head>
+  <body>
+      <header class="primary-header container">
+        <div class="row">
+          <div class="col-2">
+            <h1 class="logo">
+              <a href="index.html">Nijat <br/> and Dylan</a>
+            </h1>
+          </div>      
+
+          <div class="col-10" id="fadeshow"> 
+            <h3 class="tagline">UVA CS 4640</h3>
+            <nav>
+              <ul>
+                <li><a href="index.html" title="may or may not need, depending on design">Home</a></li>
+                <li><a href="logging.html" title="Log workouts">Log</a></li>
+                <li><a href="browse.html" title="Browse workouts">Browse</a></li>
+                <li><a href="schedule.html" title="Schedule workouts">Schedule</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>  
+      </header>
+      
+    <div class="row">
+        <div class="col-12">
+          <section class="title container">
+            <h2>Ultimate Workout Scheduler</h2>
+            <p>Never worry about missing a workout again! Our homegrown 
+              workout scheduler will remove all of the hassle of organizing
+              and optimizing your workouts! </p>
+          </section>
+        </div>
+      </div>
+    
+    <section class="content-row row">
+        <div class="grid">
+          <section class="highlight content-col col-3">
+            <a href="workout.html"></a>
+            <img src="images/barbell.png" alt="barbell icon"><br/>
+            <font class="subtitle">Workout!</font>
+            <p>Pick up where you last left off.</p>            
+          </a>
+          </section>
+  
+          <section class="highlight content-col col-3">
+            <a href="schedule.html"></a>
+            <img src="images/calendar.png" alt="dumbell and calendar"><br/>
+            <font class="subtitle">Schedule</font>
+            </a>
+            <p>Stay on top of your game by planning your next killer workout.</p>
+          </section>
+
+          <section class="highlight content-col col-3">
+            <a href="workout.html"></a>
+            <img src="images/exercise.png" alt="exercise person"><br/>
+            <font class="subtitle">Random Exercise</font>
+            <p>Pick the brain of a fellow fitness enthusiast and expand your workout-pallete.</p>            
+          </a>
+          </section>
+          
+        </div>
+      </section>   
+      
+    <footer class="primary-footer container">
+      <small class="copyright">&copy;  Nijat Khanbabayev and Dylan Dellett-Wion </small>
+      <p><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></p> 
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" title="may or may not need, depending on design">Home</a></li>
+              <li><a href="logging.html" title="Log workouts">Log</a></li>
+              <li><a href="browse.html" title="Browse workouts">Browse</a></li>
+              <li><a href="schedule.html" title="Schedule workouts">Schedule</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+  </body>
 </html>
