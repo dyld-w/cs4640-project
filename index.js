@@ -1,4 +1,4 @@
-var searchButton = document.getElementById('search-button');
+var pic1 = document.getElementById('search-button');
 var searchInput = document.getElementById('search-input');
 searchButton.addEventListener('click', () => {
   var inputValue = searchInput.value;
