@@ -72,8 +72,13 @@ body {
 }
  
 .content-col {
-  display: inline-block;	  
+  display: inline-block;
+  transition: transform 250ms;	  
 } 
+
+.content-col:hover {
+  transform: translateY(-10px);
+}
 
 .content-row {
   background: #d7e0d8;
