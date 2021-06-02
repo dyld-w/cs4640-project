@@ -36,3 +36,48 @@
     background-color: #f1f1f1;
   }
   
+
+  @media only screen and (max-width: 768px) {
+    h1 {
+       line-height: 1.1em;
+    } 
+    .container label {
+       font-size: 1rem;
+       line-height: 1em;
+    }
+    .col {
+      width: 100%;
+    }
+  }
+
+/* FROM CLASSS!!!!!!!! */
+
+/* ---------------------------- */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/**************************************/
+
+/**************************************/
+/*   css to make the page responsive  */
+ 
+/*
+roughly 
+- desktop  max-width: 992px
+- medium size tablet  max-width: 768px
+- mobile  max-width: 480px  
+*/
+
+/* change font and size with media queries */ 
+/* @media only screen and (max-width: 768px) {
+  body {
+    background-color: black; 
+  }
+} */
+  
+
+
+
+
