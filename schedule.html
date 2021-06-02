@@ -81,12 +81,57 @@
                         <span class="error" id="duedate-note"></span>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="priority">Priority</label>
-                        <select id="priority" class="form-control" >
-                        <option value="normal" selected="selected" >Normal</option>  <!-- set default selection -->
-                        <option value="high">High</option>
-                        </select>
+                    <div id="tag-buttons">
+                        <h2>Tags</h2>
+                        <h4>Intensity</h4>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioIntensity" id="Beginner" value="Beginner">
+                            <label class="form-check-label" for="inlineRadio1">Beginner</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioIntensity" id="Intermediate" value="Intermediate">
+                            <label class="form-check-label" for="inlineRadio2">Intermediate</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioIntensity" id="Advanced" value="Advanced">
+                            <label class="form-check-label" for="inlineRadio3">Advanced</label>
+                          </div>
+
+                          <h4>Bogy Region</h4>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioRegion" id="UpperBody" value="UpperBody">
+                            <label class="form-check-label" for="inlineRadio1">Upper Body</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioRegion" id="LowerBody" value="LowerBody">
+                            <label class="form-check-label" for="inlineRadio2">Lower Body</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioRegion" id="Full" value="Full">
+                            <label class="form-check-label" for="inlineRadio3">Full Body</label>
+                          </div>
+
+                          <h4>Goal</h4>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="LoseWeight" value="LoseWeight">
+                            <label class="form-check-label" for="inlineRadio1">Lose Weight</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="GetStronger" value="GetStronger">
+                            <label class="form-check-label" for="inlineRadio2">Get Stronger</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="GainMuscle" value="GainMuscle">
+                            <label class="form-check-label" for="inlineRadio3">Gain Muscle</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="GetFaster" value="GetFaster">
+                            <label class="form-check-label" for="inlineRadio2">Get Faster</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="Other" value="Other">
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                          </div>
                     </div>     
                                 
                     <input type="button" class="btn btn-light" id="add" value="Add Task" onclick="addRow()"/> 
