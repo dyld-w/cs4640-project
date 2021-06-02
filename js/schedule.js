@@ -1,3 +1,5 @@
+// <!-- calendar from these links https://clarle.github.io/yui3/yui/quick-start/ -->
+// <!-- https://clarle.github.io/yui3/yui/docs/calendar/calendar-simple.html -->
 YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
     
     // Create a new instance of calendar, placing it in
