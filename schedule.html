@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, , shrink-to-fit=no">
+    <meta name="description" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <title>Document</title>
+</head>
+<body onload="setFocus();">
+    <!-- https://clarle.github.io/yui3/yui/quick-start/ -->
+    <!-- https://clarle.github.io/yui3/yui/docs/calendar/calendar-simple.html -->
+    <script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+    <style>
+        .yui3-button {
+            margin:10px 0px 10px 0px;
+            color: #fff;
+            background-color: #3476b7;
+        }
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">UWS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="browse.html">Browse</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>To Do List</h1>
+
+                    <form name="mainform" >
+
+                    <div class="form-group">
+                        <label for="workout_title">Workout Title</label>
+
+                        <span class="error" id="workout_error"></span>        
+                        
+                        <input type="text" id="workoutdesc" class="form-control" name="desc" autofocus />
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskdesc">Task Description</label>
+                        <span class="error" id="taskdesc-note"></span>        
+
+                        <input type="text" id="taskdesc" class="form-control" name="desc" autofocus />
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duedate">Due date</label>  
+                        <input type="text" id="duedate" class="form-control" placeholder="Format: mm/dd/yyyy or mm/dd/yy and month and date must be in appropriate ranges" />  
+                        <span class="error" id="duedate-note"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" class="form-control" >
+                        <option value="normal" selected="selected" >Normal</option>  <!-- set default selection -->
+                        <option value="high">High</option>
+                        </select>
+                    </div>     
+                                
+                    <input type="button" class="btn btn-light" id="add" value="Add Task" onclick="addRow()"/> 
+                    </form>
+
+                    <br/>
+
+                    <div id="todo">
+                    <table id="todoTable" class="table" >
+                        <thead>   <!-- set table headers -->
+                        <tr>
+                            <th>Workout Title</th>
+                            <th>Task Description</th>
+                            <th>Due Date</th>
+                            <th>Priority</th>
+                            <th>(Remove)</th>
+                        </tr> 
+                        </thead>
+                        
+                        <!-- JS will dynamically create add new row upon form submission -->
+                        
+                    </table> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="demo" class="yui3-skin-sam yui3-g"> <!-- You need this skin class -->
+        
+                        <div id="leftcolumn" class="yui3-u">
+                            <!-- Container for the calendar -->
+                            <div id="mycalendar"></div>
+                        </div>
+                        <div id="rightcolumn" class="yui3-u">
+                        <div id="links" style="padding-left:20px;">
+                            <!-- The buttons are created simply by assigning the correct CSS class -->
+                            <button id="togglePrevMonth" class="yui3-button">Toggle Previous Month's Dates</button><br>
+                            <button id="toggleNextMonth" class="yui3-button">Toggle Next Month's Dates</button><br>
+                            Selected date: <span id="selecteddate"></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- sticky footer from https://getbootstrap.com/docs/5.0/examples/sticky-footer/ -->
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">&copy; 2021 - Made by Nijat Khanbabayev and Dylan Dellett-Wion</span>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function setFocus()
+        {
+           document.mainform.desc.focus();   // access element of document by name (element with name="desc" of form with name="mainform") and set focus on it
+           document.getElementById("taskdesc").focus();   // access element of document with id="taskdesc" and set focus on it
+           document.forms[0].elements[0].focus();  // access element of document by position (in case name and id are unavailable or unknown)
+                                                      // (the first form --index 0-- of this document, the first element --index 0-- of this form)
+                                                      
+           // to access an element of DOM by name, the element must have name attribute in the opening tag
+           // to access an element of DOM by id, the element must have id attribute in the opening tag
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    <script src="calendar.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
