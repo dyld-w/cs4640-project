@@ -2,7 +2,7 @@ var searchButton = document.getElementById('search-button');
 var searchInput = document.getElementById('search-input');
 searchButton.addEventListener('click', () => {
   var inputValue = searchInput.value;
-  var searchResults = document.getElementById('get_big_fast_result');
+  var searchResults = document.getElementById('search_result');
   searchResults.innerHTML = "<h3>Search results for '" + inputValue + "'</h3>";
 });
 var coll = document.getElementsByClassName("collapsible");
@@ -19,3 +19,13 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 };
+var search = document.getElementById("search-input");
+search.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    // Cancel the default action, if needed
+    // Trigger the button element with a click
+    document.getElementById("search-button").click();
+  }
+});
