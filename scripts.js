@@ -2,7 +2,7 @@ var searchButton = document.getElementById('search-button');
 var searchInput = document.getElementById('search-input');
 searchButton.addEventListener('click', () => {
   var inputValue = searchInput.value;
-  var searchResults = document.getElementById('get_big_fast_result');
+  var searchResults = document.getElementById('search_result');
   searchResults.innerHTML = "<h3>Search results for '" + inputValue + "'</h3>";
 });
 var coll = document.getElementsByClassName("collapsible");
