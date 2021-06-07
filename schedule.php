@@ -24,32 +24,8 @@
             font-style: italic;
         }
     </style>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">UWS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="browse.html">Browse</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link active" href="schedule.html">Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logging.html">Logging</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php include 'navbar.html'?>
+
     <main class="flex-shrink-0">
         <div class="container">
             <div class="row">
@@ -176,11 +152,8 @@
         </div>
     </main>
     <!-- sticky footer from https://getbootstrap.com/docs/5.0/examples/sticky-footer/ -->
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">&copy; 2021 - Made by Nijat Khanbabayev and Dylan Dellett-Wion</span>
-        </div>
-    </footer>
+    <?php include 'footer.html' ?>
+    
     <script type="text/javascript">
         function setFocus()
         {

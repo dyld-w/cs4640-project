@@ -1,41 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Nijat Khanbabayev and Dylan Dellett-Wion">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, , shrink-to-fit=no">
-    <meta name="description" content="">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <title>Logging</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Nijat Khanbabayev and Dylan Dellett-Wion">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> 
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+  <title>Browse</title>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">UWS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="browse.html">Browse</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="schedule.html">Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link active" href="logging.html">Logging</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body class="d-flex flex-column h-100">
+    <?php include 'navbar.html'?>
+
     <main class="flex-shrink-0">
         <!-- jumobtron thingy from https://getbootstrap.com/docs/5.0/examples/jumbotron/ -->
         <div class="p-5 mb-4 bg-light rounded-3">
@@ -196,12 +172,11 @@
             </div>
         </div>
     </main>
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">&copy; 2021 - Made by Nijat Khanbabayev and Dylan Dellett-Wion</span>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- sticky footer from https://getbootstrap.com/docs/5.0/examples/sticky-footer/ -->
+    <?php include 'footer.html' ?>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> 
     <script src="js/browse.js"></script>
 </body>
 </html>
