@@ -15,6 +15,7 @@
             <h1>Login to UWS</h1>
             <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             Name: <input type="text" name="username" class="form-control" autofocus required /> <br/>
+            Email: <input type="email" name="email" class="form-control" required /> <br/>
             Password: <input type="password" name="pwd" class="form-control" required /> <br/>
             <input type="submit" value="Sign in" class="btn btn-light"  />   
             </form>
@@ -32,10 +33,13 @@
                     reject('User Name');
                 }
                      
-                if (isset($_POST['pwd'])) {
+                if (isset($_POST['pwd']) && isset($_POST['email'])) {
                    $pwd = trim($_POST['pwd']);
+                   $email = trim($_POST['email']);
                    if (!ctype_alnum($pwd)) {
                       reject('Password');
+                    } if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        reject('Email');
                     } else {
                         // set session attributes
                         $_SESSION['user'] = $user;
