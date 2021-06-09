@@ -44,6 +44,7 @@
                         // set session attributes
                         $_SESSION['user'] = $user;
                         $hash_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+                        $_SESSION['email'] = $email;
                         $_SESSION['pwd'] = $hash_pwd;
                         
                         // redirect the browser to another page using the header() function to specify the target URL
