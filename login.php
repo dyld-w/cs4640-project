@@ -46,7 +46,9 @@
                         $hash_pwd = password_hash($pwd, PASSWORD_DEFAULT);
                         $_SESSION['email'] = $email;
                         $_SESSION['pwd'] = $hash_pwd;
-                        
+                        setcookie('user', $user, time() + 3600);
+                        setcookie('pwd', password_hash($pwd, PASSWORD_DEFAULT), time()+ 3600);
+                        setcookie('email', $email, time() + 3600);
                         // redirect the browser to another page using the header() function to specify the target URL
                         header('Location: schedule.php');
                     }
