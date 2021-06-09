@@ -20,7 +20,13 @@
     if (count($_SESSION) > 0) {   
         foreach ($_SESSION as $key => $value) {
             unset($_SESSION[$key]);      
-        }       
+        }
+        if (count($_COOKIE) > 0) {
+            foreach ($_COOKIE as $key => $val) {
+              unset($_COOKIE[$key]); //server side cookies
+              setcookie($key, '', time() - 3600); //permanently remove from client
+            }
+          }       
         session_destroy();
         header('refresh:5; url=index.html');
     }
