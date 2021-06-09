@@ -12,7 +12,7 @@
     <?php include 'navbar.html' ?>
     <main>
         <div class="container">
-            <h1>Welcome to CS4640 Survey</h1>
+            <h1>Login to UWS</h1>
             <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             Name: <input type="text" name="username" class="form-control" autofocus required /> <br/>
             Password: <input type="password" name="pwd" class="form-control" required /> <br/>
