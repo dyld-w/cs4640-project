@@ -169,6 +169,14 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="js/YUI-calendar.js"></script>
-    <script src="js/logging.js"></script>
+    <script src="js/schedule.js"></script>
+    <script>
+        var today = new Date();
+        var d = String(today.getDate()).padStart(2, '0');
+        var m = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var y = today.getFullYear();
+        today = y + '/' + m + '/' + d;
+        document.getElementById('duedate').value = today;
+    </script>
 </body>
 </html>
