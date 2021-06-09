@@ -53,7 +53,7 @@
                     
                     <div class="form-group">
                         <label for="duedate">Date</label>  
-                        <input type="text" id="duedate" class="form-control" placeholder="Format: mm/dd/yyyy or mm/dd/yy and month and date must be in appropriate ranges" />  
+                        <input type="text" id="duedate" class="form-control" placeholder="Recommended format: yyyy/mm/dd" />  
                         <span class="error" id="duedate-note"></span>
                     </div>
                     
@@ -123,6 +123,7 @@
                             <th>Workout Description</th>
                             <th>Date</th>
                             <th>Tags</th>
+                            <th>(Remove)</th>
                         </tr> 
                         </thead>
                         

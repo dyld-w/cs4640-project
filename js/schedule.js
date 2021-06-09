@@ -1,5 +1,6 @@
 // <!-- calendar from these links https://clarle.github.io/yui3/yui/quick-start/ -->
 // <!-- https://clarle.github.io/yui3/yui/docs/calendar/calendar-simple.html -->
+var super_date = "";
 YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
     
     // Create a new instance of calendar, placing it in
@@ -25,10 +26,12 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
         // single selection is enabled by default,
         // we expect there to be only one date)
         var newDate = ev.newSelection[0];
-
+        super_date = newDate;
         // Format the date and output it to a DOM
         // element.
         Y.one("#selecteddate").setHTML(dtdate.format(newDate));
+        document.getElementById("duedate").value = dtdate.format(newDate);
+      //   Y.one("#duedate").setHTML(dtdate.format(newDate));
     });
 
 
@@ -78,7 +81,42 @@ function addRow()
 {	  
    var desc = document.getElementById("taskdesc").value;
    var due = document.getElementById("duedate").value;
-   var priority = document.getElementById("priority").value; 
+   console.log(due);
+   // var priority = document.getElementById("priority").value; 
+   var tags = "";
+   if(document.getElementById('Beginner').checked){
+      tags += "Beginner, ";
+   }
+   if(document.getElementById('Intermediate').checked){
+      tags += "Intermediate, ";
+   }
+   if(document.getElementById('Advanced').checked){
+      tags += "Advanced, ";
+   }
+   if(document.getElementById('UpperBody').checked){
+      tags += "UpperBody, ";
+   }
+   if(document.getElementById('LowerBody').checked){
+      tags += "LowerBody, ";
+   }
+   if(document.getElementById('Full').checked){
+      tags += "Full, ";
+   }
+   if(document.getElementById('LoseWeight').checked){
+      tags += "LoseWeight ";
+   }
+   if(document.getElementById('GetStronger').checked){
+      tags += "GetStronger ";
+   }
+   if(document.getElementById('GainMuscle').checked){
+      tags += "GainMuscle ";
+   }
+   if(document.getElementById('GetFaster').checked){
+      tags += "GetFaster ";
+   }
+   if(document.getElementById('Other').checked){
+      tags += "Other ";
+   }
    var title = document.getElementById('workoutdesc').value;
    var removeoption = "<input type=button value=' X ' onClick='delRow()'>";
     
@@ -92,24 +130,28 @@ function addRow()
     document.getElementById("taskdesc-note").innerHTML = ""; 
     
       if (due === '' || isNaN((new Date(due)).valueOf()))
-      {        
-         document.getElementById("duedate").focus();
-         document.getElementById("duedate-note").innerHTML = 
-               "Date must be in <code>mm/dd/yyyy</code> or <code>mm/dd/yy</code> format and " + 
-            "month and date must be in appropriate ranges";
+      {      
+         // if (due === '' || isNaN((new Date(due)).valueOf())) 
+         // {
+         //    document.getElementById("duedate").focus();
+         //    document.getElementById("duedate-note").innerHTML = 
+         //          "Date must be in <code>mm/dd/yyyy</code> or <code>mm/dd/yy</code> format and " + 
+         //       "month and date must be in appropriate ranges";
+         // }  
       }
       else
       {
          document.getElementById("duedate-note").innerHTML = "";
     
          // put all pieces of data in an array for later used to create cell content of a row 
-         var rowdata = [title, desc, due, priority, removeoption];
+         // var rowdata = [title, desc, due, priority, removeoption];
+         var rowdata = [title, desc, due, tags, removeoption];
    
          // clear data entries (in the form)
          document.getElementById('workoutdesc').value = "";
          document.getElementById("taskdesc").value = "";
          document.getElementById("duedate").value = "";
-         document.getElementById("priority").selectedIndex = "0";   
+         // document.getElementById("tag").selectedIndex = "0";   
          var tableRef = document.getElementById("todoTable");
    
          var newRow = tableRef.insertRow(tableRef.rows.length);    
@@ -132,6 +174,17 @@ function addRow()
    }
 }  
 
+// function addRow()
+// {
+//    console.log("peen");
+//    if (document.getElementById("taskdesc").value == '')
+//    {
+//       document.getElementById("taskdesc").focus();
+//       document.getElementById("taskdesc-note").innerHTML = "Please enter task description";
+//    }
+//    else 
+//     document.getElementById("taskdesc-note").innerHTML = "";
+// }
 function delRow()
 {
    // since deletion action is unrecoverable, add hesitation to minimize/avoid user error 
