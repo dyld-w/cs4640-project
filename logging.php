@@ -7,164 +7,144 @@
     <meta name="description" content="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <title>Logging</title>
+    <title>Schedule</title>
 </head>
-<body>
+<body onload="setFocus();">
+    <!-- calendar from these links https://clarle.github.io/yui3/yui/quick-start/ -->
+    <!-- https://clarle.github.io/yui3/yui/docs/calendar/calendar-simple.html -->
+    <script src="https://yui-s.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+    <style>
+        .yui3-button {
+            margin:10px 0px 10px 0px;
+            color: #fff;
+            background-color: #3476b7;
+        }
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
     <?php include 'navbar.html'?>
-    
+
     <main class="flex-shrink-0">
-        <!-- jumobtron thingy from https://getbootstrap.com/docs/5.0/examples/jumbotron/ -->
-        <div class="p-5 mb-4 bg-light rounded-3">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Browse Workouts</h1>
-                <p class="col-md-8 fs-4">
-                    Here you can browse workouts people have posted, and even implement the workouts into
-                    your own routine! Use the filters and/or the search bar to narrow the results.
-                </p>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
-                <div class="col-2"></div>
                 <div class="col">
-                    <!-- search bar from https://mdbootstrap.com/docs/standard/forms/search/ -->
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Desired Workout" aria-label="Desired Workout" aria-describedby="button-addon2" id = "search-input">
-                        <button class="btn btn-outline-primary" type="button" id="search-button">Search</button>
+                    <h1>Workout</h1>
+
+                    <form name="mainform" >
+
+                    <div class="form-group">
+                        <label for="workout_title">Workout Title</label>
+
+                        <span class="error" id="workout_error"></span>        
+                        
+                        <input type="text" id="workoutdesc" class="form-control" name="desc" autofocus />
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskdesc">Workout Description</label>
+                        <span class="error" id="taskdesc-note"></span>        
+
+                        <input type="text" id="taskdesc" class="form-control" name="desc" autofocus />
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duedate">Date</label>  
+                        <input type="text" id="duedate" class="form-control" placeholder="Recommended format: yyyy/mm/dd" />  
+                        <span class="error" id="duedate-note"></span>
+                    </div>
+                    
+                    <div id="tag-buttons">
+                        <h2>Tags</h2>
+                        <h4>Intensity</h4>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioIntensity" id="Beginner" value="Beginner">
+                            <label class="form-check-label" for="inlineRadio1">Beginner</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioIntensity" id="Intermediate" value="Intermediate">
+                            <label class="form-check-label" for="inlineRadio2">Intermediate</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioIntensity" id="Advanced" value="Advanced">
+                            <label class="form-check-label" for="inlineRadio3">Advanced</label>
+                          </div>
+
+                          <h4>Bogy Region</h4>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioRegion" id="UpperBody" value="UpperBody">
+                            <label class="form-check-label" for="inlineRadio1">Upper Body</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioRegion" id="LowerBody" value="LowerBody">
+                            <label class="form-check-label" for="inlineRadio2">Lower Body</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioRegion" id="Full" value="Full">
+                            <label class="form-check-label" for="inlineRadio3">Full Body</label>
+                          </div>
+
+                          <h4>Goal</h4>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="LoseWeight" value="LoseWeight">
+                            <label class="form-check-label" for="inlineRadio1">Lose Weight</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="GetStronger" value="GetStronger">
+                            <label class="form-check-label" for="inlineRadio2">Get Stronger</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="GainMuscle" value="GainMuscle">
+                            <label class="form-check-label" for="inlineRadio3">Gain Muscle</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="GetFaster" value="GetFaster">
+                            <label class="form-check-label" for="inlineRadio2">Get Faster</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioGoal" id="Other" value="Other">
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                          </div>
+                    </div>     
+                                
+                    <input type="button" class="btn btn-light" id="add" value="Add Task" onclick="addRow()"/> 
+                    </form>
+
+                    <br/>
+
+                    <div id="todo">
+                    <table id="todoTable" class="table" >
+                        <thead>   <!-- set table headers -->
+                        <tr>
+                            <th>Workout Title</th>
+                            <th>Workout Description</th>
+                            <th>Date</th>
+                            <th>Tags</th>
+                            <th>(Remove)</th>
+                        </tr> 
+                        </thead>
+                        
+                        <!-- JS will dynamically create add new row upon form submission -->
+                        
+                    </table> 
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-2" style="border: 1px solid black">
-                    <!-- column for the filter and selecters -->
-                    <h3> Filters </h3>
-
-                    <h4> Intensity </h4>
-                    <!-- beginner check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        Beginner
-                        </label>
-                    </div>
-                    
-                    <!-- intermediate check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        Intermediate
-                        </label>
-                    </div>
-
-                    <!-- advanced -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        Advanced
-                        </label>
-                    </div>
-
-                    <h4> Body Region </h4>
-                    <!-- Upper check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        Upper Body
-                        </label>
-                    </div>
-                    
-                    <!-- Lower check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        Lower Body
-                        </label>
-                    </div>
-
-                    <!-- Full -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                        Full Body
-                        </label>
-                    </div>
-
-                    <h4> Goal </h4>
-                    <!-- Lose Weight check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Lose Weight
-                        </label>
-                    </div>
-                    
-                    <!-- Get Stronger check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Get Stronger
-                        </label>
-                    </div>
-
-                    <!-- Gain Muscle Mass -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Gain Muscle
-                        </label>
-                    </div>
-
-                    <!-- Get Faster check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Get Faster
-                        </label>
-                    </div>
-                    
-                    <!-- Other check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Other
-                        </label>
-                    </div>
-                </div>
-                    
-
-                <div class="col overflow-scroll" style="border: 1px solid black">
-                    <!-- col for the results -->
-                    <div class="container">
-                        <!-- shows what we searched -->
-                        <div class="row" style="border: 1px solid black" id = 'search_result'>
-                        <p></p>
+                <div class="col">
+                    <div id="demo" class="yui3-skin-sam yui3-g"> <!-- You need this skin class -->
+        
+                        <div id="leftcolumn" class="yui3-u">
+                            <!-- Container for the calendar -->
+                            <div id="mycalendar"></div>
                         </div>
-                        <!-- for each published exercise create one of the below "cards" -->
-                        <div class="row" style="border: 1px solid black" id = 'get_big_fast_result'>
-                            <button type="button" class="collapsible">Get Big Fast</button>
-                            <div  class = 'content'>
-                            <p>This is my scientifically sound 100% effective workout routine to get. Big. FAST! Follow for results. Guaranteed.</p>
-                            <p><b>Tags:</b>Beginner, Upper Body, Gain Muscle Mass</p>
-                            </div>
-                        </div>
-                        <div class="row" style="border: 1px solid black">
-                            <button type="button" class="collapsible">Bicep Blaster</button>
-                            <div class = 'content'>
-                            <p>Some people consider lifting for biceps a vanity lift and completely impractical. 
-                                Well they're wrong, and this is coming from the most handsome, least vane guy I know: Me. 
-                                This plan is will DOUBLE the size of your biceps and therefore QUADRUPLE your quality of life, and that's a promise.</p>
-                            <p><b>Tags:</b>Beginner, Upper Body, Gain Muscle Mass</p>
-                            </div>
-                        </div>
-                        <div class="row" style="border: 1px solid black">
-                            <button type="button" class="collapsible">Shoulders, Shoulders, Shoulders</button>
-                            <div  class = 'content'>
-                            <p>Be a good person. Provide your fellow human an ear to hear their woes and a shoulder to cry on... 
-                                a nice rounded, muscular, comfy-lean-your-head-against kinda shoulder to cry on. This is the plan to get those shoulders, 
-                                the shoulders that carry the weight of your burdens, overhead press a foal, and provide loving support to those around you.</p>
-                            <p><b>Tags:</b>Beginner, Upper Body, Gain Muscle Mass</p>
+                        <div id="rightcolumn" class="yui3-u">
+                        <div id="links" style="padding-left:20px;">
+                            <!-- The buttons are created simply by assigning the correct CSS class -->
+                            <button id="togglePrevMonth" class="yui3-button">Toggle Previous Month's Dates</button><br>
+                            <button id="toggleNextMonth" class="yui3-button">Toggle Next Month's Dates</button><br>
+                            Selected date: <span id="selecteddate"></span>
                         </div>
                         </div>
                     </div>
@@ -172,9 +152,23 @@
             </div>
         </div>
     </main>
-    
+    <!-- sticky footer from https://getbootstrap.com/docs/5.0/examples/sticky-footer/ -->
     <?php include 'footer.html' ?>
+    
+    <script type="text/javascript">
+        function setFocus()
+        {
+           document.mainform.desc.focus();   // access element of document by name (element with name="desc" of form with name="mainform") and set focus on it
+           document.getElementById("taskdesc").focus();   // access element of document with id="taskdesc" and set focus on it
+           document.forms[0].elements[0].focus();  // access element of document by position (in case name and id are unavailable or unknown)
+                                                      // (the first form --index 0-- of this document, the first element --index 0-- of this form)
+                                                      
+           // to access an element of DOM by name, the element must have name attribute in the opening tag
+           // to access an element of DOM by id, the element must have id attribute in the opening tag
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="js/browse.js"></script>
+    <script src="js/YUI-calendar.js"></script>
+    <script src="js/logging.js"></script>
 </body>
 </html>
