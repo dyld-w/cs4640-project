@@ -107,7 +107,11 @@
                           <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioGoal" id="Other" value="Other">
                             <label class="form-check-label" for="inlineRadio3">Other</label>
-                          </div>
+                          </div>￼ Copy
+￼ Delete
+jeff
+jeff@jeff.jeff
+jeff
                     </div>     
                                 
                     <input type="button" class="btn btn-light" id="add" value="Add Task" onclick="addRow()"/> 
